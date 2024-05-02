@@ -1,0 +1,36 @@
+const mainDish = [
+    {
+        "title":"Combo Dish",
+        "price":13.50,
+        "combo":[
+            {
+                "id":"",
+                "name":"Pad Thai",
+                "code":"C1",
+                "filename":"com_201.jpg",
+                "description":""
+            },
+            {
+                "id":"",
+                "name":"Khao Mun Gai",
+                "code":"C2",
+                "filename":"com_202.jpg",
+                "description":""
+            },
+            {
+                "id":"",
+                "name":"Pad Kra Pao",
+                "code":"C3",
+                "filename":"com_203.jpg",
+                "description":""
+            },
+            {
+                "id":"",
+                "name":"Fried Rice",
+                "code":"C4",
+                "filename":"com_204.jpg",
+                "description":""
+            }
+        ]
+    }
+]

@@ -4,43 +4,21 @@
 <main>
   <section>
     <article id="food">
-      <div id="entree">
-        <h2>Entree</h2>
-        <img src="assets/ent_101.jpg" alt="Pad Thai"><img src="assets/ent_102.jpg" alt="Pad Thai"><img
-          src="assets/ent_103.jpg" alt="Pad Thai"><img src="assets/ent_104.jpg" alt="Pad Thai"><img
-          src="assets/ent_105.jpg" alt="Pad Thai"><img src="assets/ent_106.jpg" alt="Pad Thai"><img
-          src="assets/ent_107.jpg" alt="Pad Thai"><img src="assets/ent_108.jpg" alt="Pad Thai">
+      <div id="entree" *ngFor="let entree of entreeContent">
+        <h2>{{entree.title}}</h2>
+        <img *ngFor="let item of entree.food" src="assets/{{item.filename}}">
       </div>
-      <div id="combo">
-        <h2>Combo</h2>
-        <img src="assets/com_201.jpg" alt="Pad Thai"><img src="assets/com_202.jpg" alt="Pad Thai"><img
-          src="assets/com_203.jpg" alt="Pad Thai"><img src="assets/com_204.jpg" alt="Pad Thai">
+      <div id="combo" *ngFor="let combo of comboContent">
+        <h2>{{combo.title}}</h2>
+        <img *ngFor="let item of combo.food" src="assets/{{item.filename}}">
       </div>
-      <div id="drink">
-        <h2>Bobba Tea</h2>
-        <img id="teaImg" src="assets/bob_301.jpg" alt="Pad Thai"><img src="assets/bob_302.jpg" alt="Pad Thai"><img
-          src="assets/bob_303.jpg" alt="Pad Thai"><img src="assets/bob_304.jpg" alt="Pad Thai"><img
-          src="assets/bob_305.jpg" alt="Pad Thai"><img src="assets/bob_306.jpg" alt="Pad Thai"><img
-          src="assets/bob_307.jpg" alt="Pad Thai">
+      <div id="drink" *ngFor="let bobba of drinkContent">
+        <h2>{{bobba.title}}</h2>
+        <img *ngFor="let item of bobba.food" src="assets/{{item.filename}}">
       </div>
     </article>
     <article id="total">
-      <div id="cart">
-        <h2>Cart</h2>
-        <table>
-          <thead>
-            <tr>
-              <td>Items</td>
-              <td>#</td>
-              <td>Price</td>
-              <td>Amt.</td>
-            </tr>
-          </thead>
-          <tbody id="tableRows">
-            
-          </tbody>
-        </table>
-      </div>
+      <app-cart id="cart"></app-cart>
     </article>
   </section>
   <footer>

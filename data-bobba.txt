@@ -1,0 +1,57 @@
+const mainDish = [
+    {
+        "title":"Bobba Tea",
+        "price": 6.00,
+        "drink":[
+            {
+                "id":"",
+                "name":"Honey Dew",
+                "code":"B1",
+                "filename":"bob_301.jpg",
+                "description":""
+            },
+            {
+                "id":"",
+                "name":"Taro",
+                "code":"B2",
+                "filename":"bob_302.jpg",
+                "description":""
+            },
+            {
+                "id":"",
+                "name":"Water Melon",
+                "code":"B3",
+                "filename":"bob_303.jpg",
+                "description":""
+            },
+            {
+                "id":"",
+                "name":"Mango",
+                "code":"B4",
+                "filename":"bob_304.jpg",
+                "description":""
+            },
+            {
+                "id":"",
+                "name":"Strawberry",
+                "code":"B5",
+                "filename":"bob_305.jpg",
+                "description":""
+            },
+            {
+                "id":"",
+                "name":"Matcha",
+                "code":"B6",
+                "filename":"bob_306.jpg",
+                "description":""
+            },
+            {
+                "id":"",
+                "name":"Coconut",
+                "code":"B7",
+                "filename":"bob_307.jpg",
+                "description":""
+            }
+        ]
+    }
+]
