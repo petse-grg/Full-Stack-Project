@@ -9,35 +9,20 @@ main {
     border: 1px solid white;
     margin: 2em;
     margin-bottom: auto;
-    border-radius: 20px;
+    border-radius: 15px;
     background-color: white;
-
 }
 
-main section{
+section {
     display: grid;
-    grid-template-columns: 1400px repeat(auto-fill, 400px);
-    grid-gap: 20px;
+    grid-template-columns: 65% 30%;
+    grid-gap: 15px;
 }
 
-// article{
-//     border: 2px solid rgb(46, 66, 130);
-//     border-radius: 5px;
-//     margin: 1em;
-// }
-
-// #food{
-//     width: 70%;
-// }
-
-// #total{
-//     margin: auto;
-// }
-
-div {
+div.food, #cart {
+    margin: inherit;
     border: 2px solid rgb(46, 66, 130);
-    border-radius: 20px;
-    
+    border-radius: 15px;
 }
 
 #entree,
@@ -45,30 +30,24 @@ div {
 #drink,
 #cart {
     margin: 1em;
-    background-color: rgb(217, 227, 232);
+    background-color: rgb(234, 242, 246);
 }
 
-h2{
-    // font-weight: ;
+h2 {
     text-align: center;
+    margin-bottom: auto;
 }
-
-// #combo {}
-
-// #drink {}
-
-// #cart {
-// }
 
 img {
+    min-width: 50px;
+    max-width: 200px;
     border: 1px solid black;
-    border-radius: 20px;
-    margin:1em;
-    width: 14%;
-
+    border-radius: 15px;
+    margin: 0.5rem;
+    width: auto;
 }
 
-footer{
+footer {
     margin: 2em;
     font-size: 1.2rem;
 }
@@ -79,14 +58,19 @@ table {
     margin-right: auto;
     margin-left: auto;
     border-collapse: collapse;
-    width: 50%;
+    width: 80%;
   }
-  
+
 thead {
     font-weight: bold;
 }
 
-td{
+td {
     border: 1px solid black;
-    text-align:center;
+    text-align: center;
+}
+
+.paymentValidation {
+    margin-left: 2.7rem;
+    width: 80%;
 }
