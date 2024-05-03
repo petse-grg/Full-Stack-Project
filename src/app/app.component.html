@@ -20,41 +20,8 @@
           (click)="addToCart(item.name, bobba.price);">
       </div>
     </article>
-    <article>
-      <div id="cart">
-        <h2>Cart</h2>
-        <table>
-          <thead>
-            <tr>
-              <td>Items</td>
-              <td>#</td>
-              <td>Price</td>
-              <td>Amt.</td>
-            </tr>
-          </thead>
-          <tbody id="tableRows">
-            <app-cart (cartValue)="cartItem"></app-cart>
-            <tr class="totals">
-              <td colspan="3">Subtotal</td>
-              <td></td>
-              <!-- <script>outputCurrency(subtotal)</script> -->
-            </tr>
-            <tr class="totals">
-              <td colspan="3">Tax</td>
-              <td></td>
-              <!-- <script>outputCurrency(taxAmount)</script> -->
-            </tr>
-            <tr class="totals">
-              <td colspan="3" class="focus">Total</td>
-              <td class="focus"></td>
-              <!-- <script>outputCurrency(grandTotal)</script> -->
-            </tr>
-          </tbody>
-        </table>
-        <button class="paymentValidation" (click)="confirmPayment()"> Confirm Payment</button>
-        <p>{{counter}}</p>
-      </div>
-
+    <article id="total">
+      <app-cart id="cart"></app-cart>
     </article>
   </section>
   <footer>
