@@ -3,3 +3,77 @@ body {
     background-color: rgb(158, 147, 141);
     margin: 2em;
 }
+
+h1 {
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+    color: rgb(213, 225, 232);
+}
+
+main {
+    border: 1px solid white;
+    margin: 2em;
+    margin-bottom: auto;
+    border-radius: 15px;
+    background-color: white;
+
+}
+
+section {
+    display: flex;
+    overflow-y: auto;
+}
+
+.selection {
+    width: 70%;
+}
+
+.cart-body {
+    width: 30%;
+    height: 50%;
+}
+
+.food,
+#cart {
+    margin: 2em;
+    border: 2px solid rgb(46, 66, 130);
+    border-radius: 15px;
+}
+
+#entree,
+#combo,
+#drink,
+#cart {
+    margin: 1em;
+    background-color: rgb(221, 239, 248);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: auto;
+}
+
+img {
+    min-width: 50px;
+    max-width: 200px;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 0.5rem;
+    width: auto;
+}
+
+#paymentValidation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn {
+    margin:1em;
+    min-height: 50px;
+}
+
+footer {
+    margin: 1em;
+    font-size: 1.5em;
+}

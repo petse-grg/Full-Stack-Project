@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
+import { CartService } from './shared/cart.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CartComponent } from './cart/cart.component';
     
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    CartService
   ],
   bootstrap: [AppComponent]
 })

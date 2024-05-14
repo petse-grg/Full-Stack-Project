@@ -1,6 +1,51 @@
-<tr *ngFor="let item of cartValue">
-    <td>{{item.name}}</td>
-    <td>{{item.quantity}}</td>
-    <td>{{item.price}}</td>
-    <td>{{item.amount}}</td>
-</tr>
+<table>
+    <thead>
+        <tr>
+            <td>Items</td>
+            <td>#</td>
+            <td>Price</td>
+            <td>Amount</td>
+        </tr>
+    </thead>
+    <tbody id="tableRows">
+        <tr *ngFor="let item of cartItems">
+            <td id="foodName">
+                <div id="cell"> {{item.name}}</div>
+            </td>
+            <td>
+                <div id="cell">{{item.quantity}}</div>
+            </td>
+            <td>
+                <div id="cell">{{item.price}}</div>
+            </td>
+            <td>
+                <div id="cell">{{item.amount}}</div>
+            </td>
+            <td id="btn-edit">
+                <div class="btn-edit"><button (click)="edit(item)">Edit</button></div>
+            </td>
+            <td id="btn-delete">
+                <div><button class="del" (click)="delete(item)">X</button></div>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr class="sums">
+            <td class="totals" colspan="3">Subtotal</td>
+            <td class="value">{{ calculateSubtotal() }}</td>
+        </tr>
+        <tr class="sums">
+            <td class="totals" colspan="3">Tax</td>
+            <td class="value">{{ calculateTax() }}</td>
+        </tr>
+        <tr class="sums">
+            <td class="totals" colspan="3">Total</td>
+            <td class="value">{{ calculateGrandTotal() }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div id="paymentValidation">
+    <!-- <button class="btn" (click)="payment()">Payment</button>
+    <button class="btn" (click)="cancleOrder()">Cancle</button> -->
+</div>

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { content } from './ContentModel/ContentInterface';
+import { cartContent } from './cartModel/CModel';
+import { CartService } from './shared/cart.service';
 
 @Component({
     selector: 'app-root',
@@ -6,8 +9,6 @@ import { Component } from '@angular/core';
     styleUrl: './app.component.scss'
 })
 export class AppComponent {
-    title = 'Final-Project';
-
     //data variable for entree
     entreeContent: content[] = [
         {
@@ -15,58 +16,50 @@ export class AppComponent {
             "price": 12.50,
             "food": [
                 {
-                    "id": "",
+                    "id": "M1",
                     "name": "Pad Thai",
-                    "code": "M1",
                     "filename": "ent_101.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "M2",
                     "name": "Pad Kra Pao",
-                    "code": "M2",
                     "filename": "ent_102.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "M3",
                     "name": "BBQ Ribs",
-                    "code": "M3",
                     "filename": "ent_103.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "M4",
                     "name": "Fried Rice",
-                    "code": "M4",
                     "filename": "ent_104.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "M5",
                     "name": "Khao Mun Gai",
-                    "code": "M5",
                     "filename": "ent_105.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "M6",
                     "name": "Pork Belly",
-                    "code": "M6",
                     "filename": "ent_106.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "M7",
                     "name": "Sausage",
-                    "code": "M7",
                     "filename": "ent_107.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "M8",
                     "name": "Egg Rolls",
-                    "code": "M8",
                     "filename": "ent_108.jpg",
                     "description": ""
                 }
@@ -82,30 +75,26 @@ export class AppComponent {
             "price": 13.50,
             "food": [
                 {
-                    "id": "",
+                    "id": "C1",
                     "name": "Pad Thai",
-                    "code": "C1",
                     "filename": "com_201.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "C2",
                     "name": "Khao Mun Gai",
-                    "code": "C2",
                     "filename": "com_202.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "C3",
                     "name": "Pad Kra Pao",
-                    "code": "C3",
                     "filename": "com_203.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "C4",
                     "name": "Fried Rice",
-                    "code": "C4",
                     "filename": "com_204.jpg",
                     "description": ""
                 }
@@ -120,51 +109,44 @@ export class AppComponent {
             "price": 6.00,
             "food": [
                 {
-                    "id": "",
+                    "id": "B1",
                     "name": "Honey Dew",
-                    "code": "B1",
                     "filename": "bob_301.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "B2",
                     "name": "Taro",
-                    "code": "B2",
                     "filename": "bob_302.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "B3",
                     "name": "Water Melon",
-                    "code": "B3",
                     "filename": "bob_303.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "B4",
                     "name": "Mango",
-                    "code": "B4",
                     "filename": "bob_304.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "B5",
                     "name": "Strawberry",
-                    "code": "B5",
                     "filename": "bob_305.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "B6",
                     "name": "Matcha",
-                    "code": "B6",
                     "filename": "bob_306.jpg",
                     "description": ""
                 },
                 {
-                    "id": "",
+                    "id": "B7",
                     "name": "Coconut",
-                    "code": "B7",
                     "filename": "bob_307.jpg",
                     "description": ""
                 }
@@ -172,70 +154,36 @@ export class AppComponent {
         }
     ];
 
+    listOfData: cartContent[] = [];
 
-    cartItem: cartContent[]=[];
+    itemQuanity: number = 1;
+    itemAmount: number = 0;
 
-    public item: string="";
-    public quantity: number = 0;
-    public amount: number = 0;
-    public price: number = 0;
+    constructor(private cartService: CartService) {
+        this.listOfData = this.cartService.cartItem;
+    }
 
-    addToCart(name: string, price:number) {
-        this.item = name;
-        this.updateQuantity(name);
-        this.price = price;
-        this.amount = this.calculateAmount(price);
-        
-        let cartObj =  {
-            name: this.item,
-            quantity: this.quantity,
-            price: this.price,
-            amount: this.amount,
+    //add items to service
+    addItem(id: string, name: string, price: number) {
+
+        let cartObj = {
+            id: id,
+            name: name,
+            price: price,
+            quantity: this.itemQuanity,
+            amount: price,
         } as cartContent;
-        this.cartItem.push(cartObj);
-    }
 
-    updateQuantity(name: string){
-        if(this.item != name){
-            this.quantity = 0;
-            this.quantity++;
-        }else{
-            this.quantity++;
-        }
-    }
+        this.cartService.addToCart(cartObj);
 
-    calculateAmount(price: number){
-        this.price = price;
-        return this.quantity * this.price;
-    }
-
-
-    counter: number = 0;
-    public confirmPayment() {
-        //To Do: 1) valid payment confirmation
-        // 2) send data to kds
-        return this.counter++;
+        cartObj = { 
+            id: '',
+            name: '',
+            price: 0,
+            quantity: 0,
+            amount: 0,
+        };
     }
 }
 
-//interface for food data
-interface content {
-    title: string;
-    price: number;
-    food: types[];
-}
 
-interface types {
-    id: string;
-    name: string;
-    code: string;
-    description: string;
-    filename: string;
-}
-
-interface cartContent {
-    name: string;
-    quantity: number;
-    price: number;
-    amount: number;
-}
