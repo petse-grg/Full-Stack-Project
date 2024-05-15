@@ -1,0 +1,13 @@
+<main>
+    <section class="container">
+        <article *ngFor="let data of foodContent">
+            <div class="items">
+                <h2>{{data.nameOrNum}}</h2>
+                <span *ngFor="let order of data.items"> {{order.quantity}} {{order.name}}</span>
+                <div>
+                    <button (click)="ready(data.nameOrNum)">Ready</button>
+                </div>
+            </div>
+        </article>
+    </section>
+</main>

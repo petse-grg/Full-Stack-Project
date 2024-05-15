@@ -4,6 +4,37 @@ body {
     margin: 2em;
 }
 
+header {
+    background-color: rgb(211, 237, 250);
+    color: white;
+    padding: 16px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    margin-right: 20px;
+    color: #000;
+    cursor: pointer;
+    padding: 10px;
+    width: 80%;
+
+    &.active {
+        background-color: rgb(237, 151, 38);
+    }
+}
+
+li:hover {
+    background-color: rgb(128, 128, 128);
+    color: #fff;
+}
+
+
 h1 {
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -20,9 +51,8 @@ main {
 
 }
 
-section {
+section{
     display: flex;
-    overflow-y: auto;
 }
 
 .selection {
@@ -31,7 +61,6 @@ section {
 
 .cart-body {
     width: 30%;
-    height: 50%;
 }
 
 .food,
@@ -41,12 +70,16 @@ section {
     border-radius: 15px;
 }
 
+// #cart {
+//     min-height: %;
+// }
+
 #entree,
 #combo,
 #drink,
 #cart {
     margin: 1em;
-    background-color: rgb(221, 239, 248);
+    background-color: rgb(211, 237, 250);
 }
 
 h2 {
@@ -61,16 +94,6 @@ img {
     border-radius: 15px;
     margin: 0.5rem;
     width: auto;
-}
-
-#paymentValidation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.btn {
-    margin:1em;
-    min-height: 50px;
 }
 
 footer {

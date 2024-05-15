@@ -1,0 +1,33 @@
+<h1>
+    Food Ordering System
+  </h1>
+  <main>
+    <section>
+      <article class="selection">
+        <div class="food" id="entree" *ngFor="let dish of mainDishContent">
+          <h2>{{dish.title}}</h2>
+          <img *ngFor="let item of dish.foodItems" src="assets/{{item.filename}}"
+            (click)="addItem(item.id, item.name, item.price);">
+        </div>
+        <div class="food" id="combo" *ngFor="let combo of comboContent">
+          <h2>{{combo.title}}</h2>
+          <img *ngFor="let item of combo.foodItems" src="assets/{{item.filename}}"
+            (click)="addItem(item.id, item.name, item.price);">
+        </div>
+        <div class="food" id="drink" *ngFor="let bobba of bubbleTeaContent">
+          <h2>{{bobba.title}}</h2>
+          <img *ngFor="let item of bobba.foodItems" src="assets/{{item.filename}}"
+            (click)="addItem(item.id, item.name, item.price);">
+        </div>
+      </article>
+      <article class="cart-body">
+        <div id="cart">
+          <h2>Cart</h2>
+          <app-cart></app-cart>
+        </div>
+      </article>
+    </section>
+    <footer>
+      <em>Copyright &copy; 2024 Quashi Cuisine</em>
+    </footer>
+  </main>

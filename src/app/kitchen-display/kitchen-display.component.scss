@@ -1,0 +1,39 @@
+main {
+    margin-top: 2em;
+    margin-right: 0em;
+    margin-left: 0em;
+    border-radius: 5px;
+    height: 95vh;
+    width: 100%;
+    overflow-y: auto;
+}
+
+main h2 {
+    font-weight: 500;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(5, 2fr);
+}
+
+main section article {
+    margin: 1em;
+    padding: 10px;
+    border: 1pt solid #9d9c9c;
+    border-radius: 10px;
+}
+
+main section div span{
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    text-align: left;
+    padding-top: 15px;
+}
+
+.item {
+    height: 50%;
+}

@@ -4,6 +4,7 @@ table {
     margin-right: auto;
     margin-left: auto;
     border-collapse: collapse;
+    min-width: 30%;
     width: 80%;
 }
 
@@ -16,12 +17,15 @@ tbody {
     text-align: center;
 }
 
-.sums>td {
-    border: 1px solid black;
+.sums {
+    border-top: 1px solid black;
+}
+
+#align>td {
     text-align: right;
 }
 
-.sums .value {
+#align .value {
     text-align: center;
 }
 
@@ -32,7 +36,7 @@ tbody {
 tbody #cell {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    padding: 5px; 
+    padding: 5px;
     font-size: 16px;
 }
 
@@ -44,12 +48,19 @@ tbody #cell {
     text-align: right;
 }
 
-.del{
+.del {
     color: white;
     background-color: red;
     border-radius: 50%;
     border: none;
 }
 
+#paymentValidation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-
+#paymentValidation button{
+    margin: 1em;
+}

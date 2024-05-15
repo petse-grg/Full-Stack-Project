@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { cartContent } from '../cartModel/CModel';
+import { cartContent } from '../Model/CartModel';
 import { CartService } from '../shared/cart.service';
+import { displayContent } from '../Model/kdsData';
+import { KitchenService } from '../shared/kitchen.service';
 
 @Component({
     selector: 'app-cart',
@@ -11,32 +13,21 @@ export class CartComponent {
 
     cartItems: cartContent[] = [];
 
-    itemQuanity: number = 0;
-    itemAmount: number = 0;
     subtotal: number = 0;
     total: number = 0;
     totalTax: number = 0;
 
-    constructor(private cartService: CartService) {
-        this.cartItems = this.cartService.cartItem;
-    }
-
-    ngOnInIt() {
-        this.cartService.cartSubject.subscribe(newItems => {
-            this.cartItems = newItems;
-        });
-
-        // this.calculateSubtotal();
-        this.calculateTax();
-        this.calculateGrandTotal();
-
+    constructor(private dataService: CartService, private displayService: KitchenService) {
+        this.cartItems = dataService.cartItem;
     }
 
     edit(item: cartContent) {
         let value = prompt("Enter Item Quantity");
-        if (value) {
+        if (value != '0') {
             item.quantity = Number(value);
             item.amount = item.price * item.quantity;
+        } else {
+            alert("Enter an appropiriate quantity for the order");
         }
     }
 
@@ -55,10 +46,44 @@ export class CartComponent {
         return this.total.toFixed(2);
     }
 
-    delete(item: cartContent){
-        this.cartService.deleteItem(item);
+    delete(item: cartContent) {
+        this.dataService.deleteItem(item);
+    }
+
+    paymentCard() {
+        //TODO : invoke card system
+
+        //complete trasaction
+
+        //set order and send it to KDS
+        const order = prompt("Enter order name/number");
+
+        if (order) {
+            this.displayService.orderNum(order);
+            this.displayService.updateData(this.cartItems);
+            this.displayService.addData();
+            this.dataService.deleteAll();
+        } else {
+            alert("Please Enter Order Number or Name");
+        }
+    }
+
+    paymentCash() {
+        const order = prompt("Enter order name/number");
+
+        if (order) {
+            this.displayService.orderNum(order);
+            this.displayService.updateData(this.cartItems);
+            this.displayService.addData();
+            this.dataService.deleteAll();
+        } else {
+            alert("Please Enter Order Number or Name");
+        }
+    }
+
+    cancleOrder() {
+        this.dataService.deleteAll();
     }
 }
-
 
 const RATE: number = 0.0867;

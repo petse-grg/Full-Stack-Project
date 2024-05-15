@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { CartComponent } from './cart/cart.component';
+import { KitchenDisplayComponent } from './kitchen-display/kitchen-display.component';
+import { OrderSystemComponent } from './order-system/order-system.component';
 
 
 const routes: Routes = [
-  // { path: 'cart', component: CartComponent}
+  { path: 'orderSystem', component: OrderSystemComponent},
+  { path: 'kitchenDisplay', component: KitchenDisplayComponent},
+  { path:'', redirectTo:'orderSystem', pathMatch:'full'}
 ];
 
 @NgModule({

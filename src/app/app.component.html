@@ -1,33 +1,7 @@
-<h1>
-  Food Ordering System
-</h1>
-<main>
-  <section>
-    <article class="selection">
-      <div class="food" id="entree" *ngFor="let entree of entreeContent">
-        <h2>{{entree.title}}</h2>
-        <img *ngFor="let item of entree.food" src="assets/{{item.filename}}"
-          (click)="addItem(item.id, item.name, entree.price);">
-      </div>
-      <div class="food" id="combo" *ngFor="let combo of comboContent">
-        <h2>{{combo.title}}</h2>
-        <img *ngFor="let item of combo.food" src="assets/{{item.filename}}"
-          (click)="addItem(item.id, item.name, combo.price);">
-      </div>
-      <div class="food" id="drink" *ngFor="let bobba of drinkContent">
-        <h2>{{bobba.title}}</h2>
-        <img *ngFor="let item of bobba.food" src="assets/{{item.filename}}"
-          (click)="addItem(item.id, item.name, bobba.price);">
-      </div>
-    </article>
-    <article class="cart-body">
-      <div id="cart">
-        <h2>Cart</h2>
-        <app-cart></app-cart>
-      </div>
-    </article>
-  </section>
-  <footer>
-    <em>Copyright &copy; 2024 Quashi Cuisine</em>
-  </footer>
-</main>
+<header>
+  <ul>
+    <li [routerLink]="['/orderSystem']" routerLinkActive="active">Order System</li>
+    <li [routerLink]="['/kitchenDisplay']" routerLinkActive="active">Kitchen Display</li>
+  </ul>
+</header>
+<router-outlet></router-outlet>
