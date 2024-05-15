@@ -16,6 +16,7 @@ export class CartComponent {
     subtotal: number = 0;
     total: number = 0;
     totalTax: number = 0;
+    orderId: string = "";
 
     constructor(private dataService: CartService, private displayService: KitchenService) {
         this.cartItems = dataService.cartItem;
@@ -56,10 +57,10 @@ export class CartComponent {
         //complete trasaction
 
         //set order and send it to KDS
-        const order = prompt("Enter order name/number");
+        if (this.orderId) {
+            alert("Confirm Payment");
 
-        if (order) {
-            this.displayService.orderNum(order);
+            this.displayService.orderNum(this.orderId);
             this.displayService.updateData(this.cartItems);
             this.displayService.addData();
             this.dataService.deleteAll();
@@ -69,10 +70,10 @@ export class CartComponent {
     }
 
     paymentCash() {
-        const order = prompt("Enter order name/number");
 
-        if (order) {
-            this.displayService.orderNum(order);
+        if (this.orderId) {
+            alert("Confirm Payment");
+            this.displayService.orderNum(this.orderId);
             this.displayService.updateData(this.cartItems);
             this.displayService.addData();
             this.dataService.deleteAll();

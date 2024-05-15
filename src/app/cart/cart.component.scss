@@ -61,6 +61,13 @@ tbody #cell {
     justify-content: center;
 }
 
-#paymentValidation button{
+#paymentValidation button {
     margin: 1em;
+}
+
+.inputValue {
+    margin: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
